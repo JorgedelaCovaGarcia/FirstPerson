@@ -2131,6 +2131,7 @@ GameObject:
   - component: {fileID: 9570132}
   - component: {fileID: -1175487899092543893}
   - component: {fileID: 1301408095007529238}
+  - component: {fileID: 8000143623820267810}
   m_Layer: 0
   m_Name: EnemigoPrefab
   m_TagString: Enemy
@@ -2173,7 +2174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e348447955a7c42b5b96c2bfe33d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   detectionRange: 10
   maxVida: 3
 --- !u!95 &9570132
@@ -2242,6 +2242,27 @@ CapsuleCollider:
   m_Height: 1.7705903
   m_Direction: 1
   m_Center: {x: -0.0031865835, y: 0.94970727, z: 0}
+--- !u!135 &8000143623820267810
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170078}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 15.438207
+  m_Center: {x: 0, y: 0, z: 0.20123959}
 --- !u!1 &170928
 GameObject:
   m_ObjectHideFlags: 0

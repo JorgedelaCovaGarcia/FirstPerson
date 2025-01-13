@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] public Transform player; // Referencia al jugador
+    private Transform player;
     private NavMeshAgent agent;
-    public float detectionRange = 10f; // Rango de detección
-    private bool isPlayerInRange = false; // ¿Está el jugador dentro del rango?
+    public float detectionRange = 10f;
+    private bool isPlayerInRange = false;
 
     [SerializeField] private int maxVida = 5; // Vida máxima del enemigo
     private int vidaActual; // Vida actual del enemigo
@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = FindObjectOfType<MovimientoConCamara>().transform;
         vidaActual = maxVida; 
     }
 
