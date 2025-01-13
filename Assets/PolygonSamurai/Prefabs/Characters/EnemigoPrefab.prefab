@@ -2147,7 +2147,7 @@ Transform:
   m_GameObject: {fileID: 170078}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.0852327, y: 0.21231222, z: 34.22991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2175,7 +2175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   detectionRange: 10
-  maxVida: 5
+  maxVida: 3
 --- !u!95 &9570132
 Animator:
   serializedVersion: 5
@@ -2238,10 +2238,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.38840187
+  m_Height: 1.7705903
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.0031865835, y: 0.94970727, z: 0}
 --- !u!1 &170928
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,19 +16,19 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        vidaActual = maxVida; // Inicializar vida actual
+        vidaActual = maxVida; 
     }
 
     void Update()
     {
-        // Si el jugador está en rango, seguirlo
+        
         if (isPlayerInRange && player != null)
         {
             agent.SetDestination(player.position);
         }
         else
         {
-            agent.ResetPath(); // Detener al enemigo si el jugador no está en rango
+            agent.ResetPath();
         }
     }
 
@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour
         vidaActual -= damage;
         if (vidaActual <= 0)
         {
-            Destroy(gameObject); // Destruir al enemigo cuando su vida llegue a 0
+            Destroy(gameObject); 
         }
     }
 
