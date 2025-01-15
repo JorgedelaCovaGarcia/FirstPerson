@@ -6,8 +6,8 @@ using TMPro;
 
 public class NPCInteract : MonoBehaviour
 {
-    [SerializeField] private GameObject panelInteraccion; // UI que muestra "Presiona E para hablar"
-    [SerializeField] private TMP_Text dialogoText; // Referencia al componente Text del diálogo
+    [SerializeField] private GameObject panelInteraccion;
+    [SerializeField] private TMP_Text dialogoText;
     [SerializeField] private string[] dialogos;
 
     private int indiceDialogo = 0;
@@ -15,7 +15,7 @@ public class NPCInteract : MonoBehaviour
 
     void Start()
     {
-        panelInteraccion.SetActive(false); // Oculta el panel al inicio
+        panelInteraccion.SetActive(false);
     }
 
     void Update()
@@ -37,29 +37,29 @@ public class NPCInteract : MonoBehaviour
         else
         {
             Debug.Log("Dialogo finalizado");
-            dialogoText.text = ""; // Vacía el texto al terminar el diálogo
-            indiceDialogo = 0; // Reinicia el diálogo para la próxima interacción
-            panelInteraccion.SetActive(false); // Oculta el panel al terminar
+            dialogoText.text = ""; 
+            indiceDialogo = 0; 
+            panelInteraccion.SetActive(false);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Verifica si el jugador entra en el área
+        if (other.CompareTag("Player")) 
         {
             jugadorCerca = true;
-            panelInteraccion.SetActive(true); // Muestra el panel
+            panelInteraccion.SetActive(true);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player")) // Verifica si el jugador sale del área
+        if (other.CompareTag("Player"))
         {
             jugadorCerca = false;
-            panelInteraccion.SetActive(false); // Oculta el panel
-            dialogoText.text = ""; // Resetea el diálogo
-            indiceDialogo = 0; // Reinicia el índice
+            panelInteraccion.SetActive(false); 
+            dialogoText.text = ""; 
+            indiceDialogo = 0; 
         }
     }
 }

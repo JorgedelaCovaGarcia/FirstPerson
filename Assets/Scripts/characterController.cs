@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovimientoConCamara : MonoBehaviour
 {
     [SerializeField] private float velocidadMovimiento = 5f; // Velocidad de movimiento
     [SerializeField] private float gravedad = -9.81f; // Gravedad
     [SerializeField] private float alturaSalto = 2f; // Altura del salto
+    [SerializeField] public float vidaJugador = 100;
+    
     private CharacterController characterController;
     private Vector3 velocidadVertical; // Para manejar la gravedad y el salto
 
@@ -22,6 +25,9 @@ public class MovimientoConCamara : MonoBehaviour
     {
         Mover();  // Movimiento del personaje
         AplicarGravedad();  // Gravedad y salto
+        
+
+        
     }
 
     void Mover()
@@ -51,6 +57,7 @@ public class MovimientoConCamara : MonoBehaviour
         }
     }
 
+    
     void AplicarGravedad()
     {
         if (characterController.isGrounded)
@@ -75,6 +82,24 @@ public class MovimientoConCamara : MonoBehaviour
 
         // Aplicar el movimiento vertical (gravedad y salto)
         characterController.Move(velocidadVertical * Time.deltaTime);
+    }
+
+    public void RecibirDanio(int dano)
+    {
+        vidaJugador -= dano; // Reducir la vida del jugador
+        Debug.Log($"Vida del jugador: {vidaJugador}"); // Mostrar la vida actual en la consola para verificar
+
+        if (vidaJugador <= 0) // Si la vida llega a 0 o menos
+        {
+            vidaJugador = 0; // Asegurarnos de que no sea negativa
+            Debug.Log("El jugador ha muerto.");
+            CambiarEscenaGameOverScene(); // Cambiar a la escena de Game Over
+        }
+    }
+
+    private void CambiarEscenaGameOverScene()
+    {
+        SceneManager.LoadScene("GameOverScene"); // Cambiar a la escena de Game Over
     }
 }
 

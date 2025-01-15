@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ArmaPrimera : MonoBehaviour
 {
-    [SerializeField] GameObject surikenPrefab; // Prefab del proyectil
-    [SerializeField] Transform firePoint; // Punto desde donde se dispara
-    [SerializeField] float velocidad = 20f; // Velocidad del proyectil
-    [SerializeField] AudioSource sonido; // Sonido del disparo
-    [SerializeField] int damage = 1; // Daño que hace el proyectil
-    [SerializeField] float tiempoVida = 5f; // Tiempo que dura el proyectil antes de destruirse
+    [SerializeField] GameObject surikenPrefab;
+    [SerializeField] Transform firePoint; 
+    [SerializeField] float velocidad = 20f; 
+    [SerializeField] AudioSource sonido; 
+    [SerializeField] int damage = 1; 
+    [SerializeField] float tiempoVida = 5f; 
 
     void Update()
     {
-        // Detectar disparo
+        
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
@@ -22,7 +22,7 @@ public class ArmaPrimera : MonoBehaviour
 
     void Shoot()
     {
-        // Instanciar el suriken en el punto de disparo
+        
         GameObject bullet = Instantiate(surikenPrefab, firePoint.position, firePoint.rotation);
 
         // Aplicar velocidad al suriken
@@ -32,20 +32,19 @@ public class ArmaPrimera : MonoBehaviour
             rb.velocity = firePoint.forward * velocidad;
         }
 
-        // Reproducir sonido si está asignado
+        
         if (sonido != null)
         {
             sonido.Play();
         }
 
-        // Asignar comportamiento del proyectil
-        SurikenLogic surikenLogic = bullet.AddComponent<SurikenLogic>();
+      
+        SurikenFuncionamiento surikenLogic = bullet.AddComponent<SurikenFuncionamiento>();
         surikenLogic.Configure(damage, tiempoVida);
     }
 }
 
-// Clase interna para gestionar la lógica del Suriken
-public class SurikenLogic : MonoBehaviour
+public class SurikenFuncionamiento : MonoBehaviour
 {
     private int damage;
     private float tiempoVida;
@@ -55,7 +54,7 @@ public class SurikenLogic : MonoBehaviour
         this.damage = damage;
         this.tiempoVida = tiempoVida;
 
-        // Destruir el proyectil después de cierto tiempo
+        
         Destroy(gameObject, tiempoVida);
     }
 
@@ -65,10 +64,10 @@ public class SurikenLogic : MonoBehaviour
         EnemyAI enemy = collision.gameObject.GetComponent<EnemyAI>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage); // Asumimos que EnemyAI tiene un método TakeDamage
+            enemy.TakeDamage(damage);
         }
 
-        // Destruir el proyectil tras el impacto
+        
         Destroy(gameObject);
     }
 }

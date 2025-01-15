@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -10,14 +11,29 @@ public class EnemyAI : MonoBehaviour
     public float detectionRange = 10f;
     private bool isPlayerInRange = false;
 
-    [SerializeField] private int maxVida = 5; // Vida máxima del enemigo
-    private int vidaActual; // Vida actual del enemigo
+    [SerializeField] private int maxVida = 5;
+    private int vidaActual; 
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<MovimientoConCamara>().transform;
         vidaActual = maxVida; 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            MovimientoConCamara jugador = collision.collider.GetComponent<MovimientoConCamara>();
+            if (jugador != null)
+            {
+                
+                
+                SceneManager.LoadScene("GameOverScene");
+                
+            }
+        }
     }
 
     void Update()
