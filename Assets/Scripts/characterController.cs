@@ -87,7 +87,7 @@ public class MovimientoConCamara : MonoBehaviour
     public void RecibirDanio(int dano)
     {
         vidaJugador -= dano; // Reducir la vida del jugador
-        Debug.Log($"Vida del jugador: {vidaJugador}"); // Mostrar la vida actual en la consola para verificar
+        Debug.Log("Vida del jugador: {vidaJugador}"); // Mostrar la vida actual en la consola para verificar
 
         if (vidaJugador <= 0) // Si la vida llega a 0 o menos
         {

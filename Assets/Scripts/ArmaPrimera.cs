@@ -6,9 +6,8 @@ public class ArmaPrimera : MonoBehaviour
 {
     [SerializeField] GameObject surikenPrefab;
     [SerializeField] Transform firePoint; 
-    [SerializeField] float velocidad = 20f; 
-    [SerializeField] AudioSource sonido; 
-    [SerializeField] int damage = 1; 
+    [SerializeField] float velocidad = 20f;  
+    [SerializeField] int damage = 1; //daño arma shuriken
     [SerializeField] float tiempoVida = 5f; 
 
     void Update()
@@ -30,15 +29,7 @@ public class ArmaPrimera : MonoBehaviour
         if (rb != null)
         {
             rb.velocity = firePoint.forward * velocidad;
-        }
-
-        
-        if (sonido != null)
-        {
-            sonido.Play();
-        }
-
-      
+        } 
         SurikenFuncionamiento surikenLogic = bullet.AddComponent<SurikenFuncionamiento>();
         surikenLogic.Configure(damage, tiempoVida);
     }

@@ -14,7 +14,7 @@ public class WeaponSwitcher : MonoBehaviour
 
     void Update()
     {
-        
+        //cambia de arma al darle a la F
         if (Input.GetKeyDown(KeyCode.F))
         {
             CambiarArma();
@@ -26,7 +26,7 @@ public class WeaponSwitcher : MonoBehaviour
      
         armas[armaActual].SetActive(false);
 
-       
+        //para poder cambiar de arma (calcula el índice del arma)
         armaActual = (armaActual + 1) % armas.Length;
 
    

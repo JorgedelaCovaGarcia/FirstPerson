@@ -27,17 +27,18 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        
+        //si se han creado más enemigos de la cuenta, sale del método
         if (activeEnemies.Count >= maxEnemies)
         {
-            return;
+            return; 
         }   
         
+        //para randomizar los puntos de spawn
         int randomIndex = Random.Range(0, spawnPoints.Length);
-
         Transform spawnPoint = spawnPoints[randomIndex];
 
-        
+        //manejar oleadas (genera un nuevo enemigo en la posición y rotación del punto de aparición)
+
         GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
 
         EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();

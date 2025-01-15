@@ -10,12 +10,14 @@ public class DialogoText : MonoBehaviour
         dialogoText = GetComponent<Text>();
         if (dialogoText == null)
         {
-            Debug.LogError("No se encontró un componente de texto en el objeto del diálogo.");
+            //como tenía errores, puse esto para ver si detectaba el texto de diálogo o no
+            Debug.Log("No se encontró un componente de texto en el objeto del diálogo.");
         }
     }
 
     public void UpdateDialogue(string newText)
     {
+        //para ir actualizando el diálogo
         if (dialogoText != null)
         {
             dialogoText.text = newText;

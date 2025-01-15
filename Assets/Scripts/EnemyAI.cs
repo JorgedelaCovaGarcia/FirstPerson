@@ -41,11 +41,11 @@ public class EnemyAI : MonoBehaviour
         
         if (isPlayerInRange && player != null)
         {
-            agent.SetDestination(player.position);
+            agent.SetDestination(player.position); //perseguir al player
         }
         else
         {
-            agent.ResetPath();
+            agent.ResetPath(); //dejar de perseguir al player
         }
     }
 

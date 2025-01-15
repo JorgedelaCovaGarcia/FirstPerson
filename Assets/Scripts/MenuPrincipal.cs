@@ -11,7 +11,7 @@ public class MenuPrincipal : MonoBehaviour
     }
     public void Exit()
     {
-        Application.Quit();
+        //Application.Quit();
     }
 }
 
